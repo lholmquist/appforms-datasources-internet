@@ -23,6 +23,11 @@ app.use(mbaasExpress.fhmiddleware());
  */
 app.use('/hobbies', require('./lib/hobbies.js')());
 
+/**
+    Endpoint for list of Star Wars Movies
+*/
+app.use('/sw', require('./lib/sw-movies.js')());
+
 // You can define custom URL handlers here, like this one:
 app.use('/', function(req, res) {
   res.end('Your Cloud App is Running');
