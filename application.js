@@ -15,6 +15,9 @@ app.use(cors());
 app.use('/sys', mbaasExpress.sys(securableEndpoints));
 app.use('/mbaas', mbaasExpress.mbaas);
 
+// allow serving of static files from the public directory
+app.use(express.static(__dirname + '/public'));
+
 // Note: important that this is added just before your own Routes
 app.use(mbaasExpress.fhmiddleware());
 
@@ -27,11 +30,6 @@ app.use('/hobbies', require('./lib/hobbies.js')());
     Endpoint for list of Star Wars Movies
 */
 app.use('/sw', require('./lib/sw-movies.js')());
-
-// You can define custom URL handlers here, like this one:
-app.use('/', function(req, res) {
-  res.end('Your Cloud App is Running');
-});
 
 // Important that this is last!
 app.use(mbaasExpress.errorHandler());
