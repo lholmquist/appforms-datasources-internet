@@ -24,12 +24,12 @@ app.use(mbaasExpress.fhmiddleware());
 /**
  * Endpoint for list of hobbies
  */
-app.use('/hobbies', require('./lib/hobbies.js')());
+app.use('/hobbies', require('./lib/hobbies.js'));
 
 /**
     Endpoint for list of Star Wars Movies
 */
-app.use('/sw', require('./lib/sw-movies.js')());
+app.use('/sw', require('./lib/sw-movies.js'));
 
 // Important that this is last!
 app.use(mbaasExpress.errorHandler());
